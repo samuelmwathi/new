@@ -62,6 +62,11 @@ switch($text){
         $responce ="CON Your Loan balance 3000";
         $responce.="9: back";
         break;
+        case "4": 
+            $responce ="CON Your Loan balance 3000";
+            $responce.="9: back";
+            break;
+        
     }
     
 //     if ($text == "") {
