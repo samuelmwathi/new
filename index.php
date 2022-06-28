@@ -58,7 +58,7 @@ switch($text){
         $response.="2 : select\n";
         $response.="9 : Back";
         break;
-    case "3": 
+    case "3" : 
         $responce ="CON Your Loan balance 3000";
         $responce.="9: back";
         break;
