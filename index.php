@@ -62,6 +62,7 @@ switch($text){
         $responce ="CON Your Loan balance 3000";
         $responce.="9: back";
         break;
+    }
     
 //     if ($text == "") {
 //         $response = "CON 1: See Amount You Can Borrow\n";
