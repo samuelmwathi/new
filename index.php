@@ -45,12 +45,12 @@ switch($text){
     break;
     case "1":
         $sum= get_sum( $phoneNumber);
-            $amount_to_creadit=$sum * 40 / 100;
-            $response = "END Dear customer your borrowing limit stands at KSH:".$amount_to_creadit.",\n
+        $amount_to_creadit=$sum * 40 / 100;
+        $response = "END Dear customer your borrowing limit stands at KSH:".$amount_to_creadit.",\n
             please contact 0723895210 for more information and loan processing.
             Your loan will be processed within the next 24 hours,
             Thanks For Using Our Service";   
-            break;
+        break;
 
     case "2" :
         $response ="CON Select Option\n";
@@ -59,10 +59,10 @@ switch($text){
         $response.="9 : Back";
         break;
     case "3" : 
-        $responce ="CON Your Loan balance 3000";
-        $responce.="9: back";
+        $response ="CON Your Loan balance 3000";
+        $response.="9: back";
         break;
-        case "4": 
+    case "4" : 
             $responce ="CON Your Loan balance 3000";
             $responce.="9: back";
             break;
