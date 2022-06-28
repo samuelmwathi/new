@@ -53,9 +53,9 @@ switch($text){
             break;
 
     case "2" :
-        $response ="CON Select Option";
-        $response.="1 : select";
-        $response.="2 : select ";
+        $response ="CON Select Option\n";
+        $response.="1 : select\n";
+        $response.="2 : select\n";
         $response.="9 : Back";
         break;
     case "3": 
