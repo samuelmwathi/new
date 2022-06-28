@@ -59,13 +59,9 @@ switch($text){
         $response.="9 : Back";
         break;
     case "3" : 
-        $response ="CON Your Loan balance 3000";
+        $response ="CON Your Loan balance 3000\n";
         $response.="9: back";
         break;
-    case "4" : 
-            $responce ="CON Your Loan balance 3000";
-            $responce.="9: back";
-            break;
         
     }
     
@@ -114,5 +110,6 @@ switch($text){
     // }
     header('Content-type: text/plain');
     echo $response;
+    $response=NULL;
 
 ?>
