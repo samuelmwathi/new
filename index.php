@@ -44,6 +44,12 @@ switch($text){
     $response.="3 : See your balance";
     break;
     case "1":
+        $response="CON Loan limit\n"
+        $response.="1 : Apply for a loan"
+
+
+
+
         $sum= get_sum( $phoneNumber);
         $amount_to_creadit=$sum * 40 / 100;
         $response = "END Dear customer your borrowing limit stands at KSH:".$amount_to_creadit.",\n
@@ -53,10 +59,11 @@ switch($text){
         break;
 
     case "2" :
-        $response ="CON Select Option\n";
-        $response.="1 : select\n";
-        $response.="2 : select\n";
-        $response.="9 : Back";
+        $response ="CON Get a Loan\n";
+        $response.="1 : (2)Months Loan\n";
+        $response.="2 : (3)Months Loan\n";
+        $response.="3 : (6)Month Loan";
+        $response.="0 : back";
         break;
     case "3" : 
         $response ="CON Your Loan balance 3000\n";
