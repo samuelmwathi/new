@@ -117,6 +117,6 @@ switch($text){
     // }
     header('Content-type: text/plain');
     echo $response;
-    $text=NULL;
+    $text        = $_POST["text"];
 
 ?>
