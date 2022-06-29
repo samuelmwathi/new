@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json');
 include_once __DIR__.'/classes/payment_details.php';
+include_once __DIR__.'/classes/loan_status.php';
 //variables decrelation and initialization
  function get_sum($phone_No){
     $phone_No=$phone_No;
@@ -27,6 +28,19 @@ include_once __DIR__.'/classes/payment_details.php';
         return 0;
     }
     
+}
+
+function check_loan_status(){
+    $loan_statu=new Loan_status($phone_No);
+    $result=$loan_statu->select();
+    $row_count=$result->rowCount();
+    //////////////
+    if($row_count>0){
+        return 0;
+    }  
+    else{
+        return $result;
+    }
 }
 
 //ussd code    
