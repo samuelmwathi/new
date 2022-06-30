@@ -11,7 +11,7 @@ class Loan_status{
         $db=new connect;
         $loan_status=array();
         $result=$db->prepare("SELECT ls.loan_status,ls.loan_amount FROM loan_status ls
-         WHERE ls.phone_number='$this->member_phone' ");
+         WHERE ls.phone_number='+254777659523' ");
         $result->execute();
         return $result;
     }
