@@ -55,7 +55,7 @@ switch($text){
         break;
 
     case "2" :
-        $loan_statu=new Loan_status($phone_No);
+        $loan_statu=new Loan_status($phoneNumber);
         $result=$loan_statu->select();
         $row_count=$result->rowCount();
         $row;
