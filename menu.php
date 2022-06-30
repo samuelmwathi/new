@@ -18,7 +18,6 @@ public function main_menu(){
     $response.="2 : Apply for a loan\n";
     $response.="3 : See your balance";
     return $response;
-
 }
 function unpaid_loan(){
     $result=new Loan_status($this->$phoneNumber);
