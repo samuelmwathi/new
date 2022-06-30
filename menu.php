@@ -44,7 +44,7 @@ function apply_loan($textArray,$amount_to_credit,$phoneNumber){
         $response ="CON Get a Loan to be repaid within\n";
         $response.="1 : (1)Month \n";
         $response.="2 : (3)Months \n";
-         echo "CON Please enter your full name:";
+        echo $response;
     } else if($textArray[1]==1){
         echo "CON Please enter your id number:";
 
