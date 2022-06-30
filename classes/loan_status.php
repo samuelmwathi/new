@@ -16,6 +16,15 @@ class Loan_status{
         return $result;
     }
 
+    public function get_unpaid_loan($member_phoneNo){
+        $db=new connect;
+        $loan_status=array();
+        $result=$db->prepare("SELECT ls.loan_status,ls.loan_amount FROM loan_status ls
+         WHERE ls.phone_number='$this->member_phoneNo' and ls.loan_status=-1 ");
+        $result->execute();
+        return $result;
+    }
+
 }
 
 ?>
