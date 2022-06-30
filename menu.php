@@ -54,15 +54,15 @@ function apply_loan($textArray,$amount_to_credit,$phoneNumber){
 
 
     }
-    elseif($level==3){
+    elseif($level==4){
         $response="CON Enter amount between KSH: 100 and KSH:".$amount_to_credit;
     }
-    elseif($level==4){
+    elseif($level==5){
         $response="CON Please select account to credit\n";
         $response.="1 :".$phoneNumber;
         echo $response;
     }
-    elseif($level==5){
+    elseif($level==6){
         echo "END please wait asyour loan is being processed, Thank you";
     }
 
