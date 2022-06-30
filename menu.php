@@ -3,7 +3,7 @@ include_once __DIR__.'/classes/payment_details.php';
 include_once __DIR__.'/classes/loan_status.php';
 class menu{
 protected $text;
-$phoneNumber;
+private $phoneNumber;
 protected $session_id;
 
 
@@ -26,8 +26,7 @@ function unpaid_loan(){
     if($rowCount>0){
         $row=$result->fetch(PDO::FETCH_ASSOC);
         extract($row);
-        $unpaidloan=$row['loan_amount']
-
+        $unpaidloan=$row['loan_amount'];
         echo "End Dear customer you have unpaid loan of KSH:".$unpaidloan."
         reply with the option below to  repay\n 1 : repay loan";
     }else{

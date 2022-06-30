@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 include_once __DIR__.'/classes/payment_details.php';
 include_once __DIR__.'/classes/loan_status.php';
-include_once 'menu.php'
+include_once 'menu.php';
 //variables decrelation and initialization
 
 
@@ -22,8 +22,7 @@ include_once 'menu.php'
             
 
 
-            
-            
+          
         }
        return $sum;
     }else
@@ -54,10 +53,13 @@ function getAmountToCredit(){
     $text        = $_POST["text"];
     $menu=new menu($phoneNumber);
     $amount_to_creadit=getAmountToCredit();
+    header('Content-type: text/plain');
+  
+
 
 
     if($text==""){
-        $response=$menu->main_menu();
+       echo $menu->main_menu();
     }else{
         $textArray=explode("*",$text);
 
@@ -82,9 +84,7 @@ function getAmountToCredit(){
 
 
         
-    header('Content-type: text/plain');
-    echo $response;
-
+   
 
 ?>
 <!-- $amount_to_creadit=get_loan_limit( $phoneNumber);
