@@ -55,30 +55,30 @@ switch($text){
         break;
 
     case "2" :
-        // $loan_statu=new Loan_status($phone_No);
-        // $result=$loan_statu->select();
-        // $row_count=$result->rowCount();
-        // //////////////
-        // if($row_count>0){
-        //     while($row=$result->fetch(PDO::FETCH_ASSOC)){
-        //         extract($row);
-        //         $sum= get_sum( $phoneNumber);
-        //         $amount_to_creadit=$sum * 40 / 100;
-        //         if( $row['loan_status']==-1){
-        //             $response="END Dear customer your have an existing loan that is not yet paid, 
-        //             first clear the loan to get access to new loan"
-        //         }
-        //     }
+        $loan_statu=new Loan_status($phone_No);
+        $result=$loan_statu->select();
+        $row_count=$result->rowCount();
+        //////////////
+        if($row_count>0){
+            while($row=$result->fetch(PDO::FETCH_ASSOC)){
+                extract($row);
+                $sum= get_sum( $phoneNumber);
+                $amount_to_creadit=$sum * 40 / 100;
+                if( $row['loan_status']==-1){
+                    $response="END Dear customer your have an existing loan that is not yet paid, 
+                    first clear the loan to get access to new loan"
+                }
+            }
            
-        // }  
-        // else{
-        //     $response="CON 3 : (6)Month Loan";
-        // }
-        $response ="CON Get a Loan\n";
-        $response.="1 : (2)Months Loan\n";
-        $response.="2 : (3)Months Loan\n";
-        $response.="3 : (6)Month Loan";
-        $response.="0 : back";
+        }  
+        else{
+            $response="CON 3 : (6)Month Loan";
+        }
+        // $response ="CON Get a Loan\n";
+        // $response.="1 : (2)Months Loan\n";
+        // $response.="2 : (3)Months Loan\n";
+        // $response.="3 : (6)Month Loan";
+        // $response.="0 : back";
         break;
     case "3" : 
         $response ="CON Your Loan balance 3000\n";
