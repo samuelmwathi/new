@@ -30,6 +30,12 @@ include_once __DIR__.'/classes/loan_status.php';
     
 }
 
+public get_loan_limit($phoneNumber){
+    $sum= get_sum( $phoneNumber);
+    $amount_to_creadit=$sum * 40 / 100;
+    return $amount_to_creadit;
+}
+
 
 
 //ussd code    
@@ -47,14 +53,15 @@ switch($text){
     $response.="3 : See your balance";
     break;
     case "1":
-        $sum= get_sum( $phoneNumber);
-        $amount_to_creadit=$sum * 40 / 100;
+
+        $amount_to_creadit=get_loan_limit( $phoneNumber);
         $response = "CON Dear customer your borrowing limit stands at KSH:".$amount_to_creadit.",
                select the option below to apply \n"; 
         $response.="1 : Apply for a loan";
         break;
 
     case "2" :
+        $amount_to_creadit=get_loan_limit($phoneNumber);
         $loan_statu=new Loan_status($phoneNumber);
         $result=$loan_statu->select();
         $row_count=$result->rowCount();
@@ -67,8 +74,15 @@ switch($text){
                 $amount_to_creadit=$sum * 40 / 100;
                 switch($row['loan_status']){
                     case -1:
+                        if($amount_to_creadit > $row['loan_amount']){
+                            $response="END YOU CAN BORROW";
+
+                        }else{
                         $response="END Dear customer your have an existing loan that is not yet paid, 
                     first clear the loan to get access to new loan ";
+                    break;
+                        }
+                
                     break;
                 }
                 
