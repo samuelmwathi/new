@@ -66,7 +66,7 @@ switch($text){
                 $amount_to_creadit=$sum * 40 / 100;
                 if( $row['loan_status']==-1){
                     $response="END Dear customer your have an existing loan that is not yet paid, 
-                    first clear the loan to get access to new loan"
+                    first clear the loan to get access to new loan";
                 }
             }
            
