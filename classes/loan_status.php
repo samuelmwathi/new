@@ -1,17 +1,17 @@
 <?php
 include_once __DIR__. '/../config/config.php';
 class Loan_status{
-    private $member_phone;
+    private $member_phoneNo;
     private $loan_id;
-    public function __construct($member_phone){
+    public function __construct($member_phoneNo){
         $this->loan_id=$loan_id;
-        $this->member_phoneNo=$member_phone;
+        $this->member_phoneNo=$member_phoneNo;
     }
     public function select(){
         $db=new connect;
         $loan_status=array();
         $result=$db->prepare("SELECT ls.loan_status,ls.loan_amount FROM loan_status ls
-         WHERE ls.phone_number='+254777659523' ");
+         WHERE ls.phone_number='$this->member_phoneNo' ");
         $result->execute();
         return $result;
     }
