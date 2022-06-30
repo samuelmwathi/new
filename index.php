@@ -51,12 +51,7 @@ switch($text){
         $amount_to_creadit=$sum * 40 / 100;
         $response = "CON Dear customer your borrowing limit stands at KSH:".$amount_to_creadit.",
                select the option below to apply \n"; 
-        $response.="1 : Apply for a loan"
-
-
-
-
-          
+        $response.="1 : Apply for a loan";
         break;
 
     case "2" :
