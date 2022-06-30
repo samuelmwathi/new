@@ -30,7 +30,7 @@ include_once __DIR__.'/classes/loan_status.php';
     
 }
 
-public get_loan_limit($phoneNumber){
+function get_loan_limit($phoneNumber){
     $sum= get_sum( $phoneNumber);
     $amount_to_creadit=$sum * 40 / 100;
     return $amount_to_creadit;
