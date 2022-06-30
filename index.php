@@ -74,7 +74,7 @@ switch($text){
                 
             }
         }  else{
-            $response="END".$row['loan_status']
+            $response="END".$row['loan_status'];
         }
         
         // $response ="CON Get a Loan\n";
