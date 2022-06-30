@@ -74,7 +74,7 @@ switch($text){
                 
             }
         }  else{
-            $response="END thanks"
+            $response="END thanks";
         }
         
         // $response ="CON Get a Loan\n";
