@@ -45,11 +45,11 @@ function apply_loan($textArray,$amount_to_credit,$phoneNumber){
         $response.="1 : (1)Month \n";
         $response.="2 : (3)Months \n";
         echo $response;
-    } else if($textArray[1]==1){
+    } else if($textArray[1]==1 && $level==2){
         echo "CON Please enter your id number:";
 
 
-    }else if($textArray[1]==2){
+    }else if($textArray[1]==2 && $level==3){
         echo "CON Please enter your id number:";
 
 
