@@ -77,7 +77,7 @@ switch($text){
                     case -1:
                         if($amount_to_creadit > $loan_amount){
                             $loan_limit_balance=$amount_to_creadit- $loan_amount;
-                            $response="END YOU CAN BORROW".$loan_limit."amount";
+                            $response="END YOU CAN BORROW".$loan_limit_balance."amount";
 
                         }else{
                         $response="END Dear customer your have an existing loan that is not yet paid, 
