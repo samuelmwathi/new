@@ -80,7 +80,6 @@ switch($text){
                         }else{
                         $response="END Dear customer your have an existing loan that is not yet paid, 
                     first clear the loan to get access to new loan ";
-                    break;
                         }
                 
                     break;
