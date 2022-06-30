@@ -49,13 +49,14 @@ function apply_loan($textArray,$amount_to_credit,$phoneNumber){
         echo "CON Please enter your id number:";
 
 
-    }else if($textArray[1]==2 && $level==3){
+    }else if($textArray[1]==2 && $level==2){
         echo "CON Please enter your id number:";
 
 
     }
     elseif($level==4){
         $response="CON Enter amount between KSH: 100 and KSH:".$amount_to_credit;
+        echo $response;
     }
     elseif($level==5){
         $response="CON Please select account to credit\n";
