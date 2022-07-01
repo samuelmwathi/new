@@ -5,11 +5,16 @@ class menu{
 protected $text;
 private $phoneNumber;
 protected $session_id;
+protected $customerCurrentLoan;
+private $amount_to_creadit;
 
 
 
-public function __construct($phoneNumber){
-$this->$phoneNumber=$phoneNumber;
+public function __construct($phoneNumber,$customerCurrentLoan,$amount_to_creadit){
+$this->phoneNumber=$phoneNumber;
+$this->customerCurrentLoan=$customerCurrentLoan;
+$this->amount_to_creadit=$amount_to_creadit;
+
 }
 
  
@@ -67,10 +72,10 @@ public function apply_loan($textArray,$amount_to_credit,$phoneNumber){
 
 }
 
-public function check_loan_limit_balance($amount_to_creadit,$customerLoan){
-    $loanbalance=$amount_to_creadit-$customerLoan;
-    echo "END dear customer your loan limit is KSH:".$amount_to_creadit."
-    ,your current loan is at KSH:".$customerLoan." You are allowed to borrow KSH:".$loanbalance.
+public function check_loan_limit_balance(){
+    $loanbalance=$this->amount_to_creadit-$this->customerCurrentLoan;
+    echo "END dear customer your loan limit is KSH:".$this->amount_to_creadit."
+    ,your current loan is at KSH:".$this->customerCurrentLoan." You are allowed to borrow KSH:".$loanbalance.
     "to reach your loan limit";
     //check loan limit balance
 
