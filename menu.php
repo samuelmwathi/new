@@ -12,20 +12,7 @@ public function __construct($phoneNumber){
 $this->$phoneNumber=$phoneNumber;
 }
 
-public function getCustomerloan(){
-    $result=new Loan_status($this->$phoneNumber);
-    $rowCount=$result->rowCount();
-    if($rowCount>0){
-        $row=$result->fetch(PDO::FETCH_ASSOC);
-        extract($row);
-        $unpaidloan=$row['loan_amount'];
-        return $unpaidloan;
-    }else {
-        return 0;
-    }
-
-
-}
+ 
 
 public function main_menu(){
     $response = "CON select option\n";
@@ -34,11 +21,9 @@ public function main_menu(){
     $response.="3 : See your balance";
     return $response;
 }
-public function unpaid_loan(){
-    $unpaidloan=getCustomerloan();
-   
-    if($unpaidloan>0){
-        echo "END Dear customer you have unpaid loan of KSH:".$unpaidloan."
+public function unpaid_loan($customerLoan){
+    if($customerLoan>0){
+        echo "END Dear customer you have unpaid loan of KSH:".$customerLoan."
         reply with the option below to  repay\n 1 : repay loan";
     }else{
         echo "END Dear customer you dont have an unpiad loan, check your loan limit
@@ -82,11 +67,10 @@ public function apply_loan($textArray,$amount_to_credit,$phoneNumber){
 
 }
 
-public function check_loan_limit_balance($amount_to_creadit){
-    $unpaidloan=getCustomerloan();
-    $loanbalance=$amount_to_creadit-$unpaidloan;
+public function check_loan_limit_balance($amount_to_creadit,$customerLoan){
+    $loanbalance=$amount_to_creadit-$customerLoan;
     echo "END dear customer your loan limit is KSH:".$amount_to_creadit."
-    ,your current loan is at KSH:".$unpaidloan." You are allowed to borrow KSH:".$loanbalance.
+    ,your current loan is at KSH:".$customerLoan." You are allowed to borrow KSH:".$loanbalance.
     "to reach your loan limit";
     //check loan limit balance
 

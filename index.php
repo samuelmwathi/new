@@ -42,6 +42,20 @@ function getAmountToCredit(){
     $amount_to_creadit=$sum * 40 / 100;
     return $amount_to_creadit;
 }
+function getCustomerloan(){
+    $result=new Loan_status($this->$phoneNumber);
+    $rowCount=$result->rowCount();
+    if($rowCount>0){
+        $row=$result->fetch(PDO::FETCH_ASSOC);
+        extract($row);
+        $unpaidloan=$row['loan_amount'];
+        return $unpaidloan;
+    }else {
+        return 0;
+    }
+
+
+}
 
 
 
@@ -53,6 +67,7 @@ function getAmountToCredit(){
     $text        = $_POST["text"];
     $menu=new menu($phoneNumber);
     $amount_to_creadit=getAmountToCredit();
+    $customerLoan=getCustomerloan();
     header('Content-type: text/plain');
   
 
@@ -65,13 +80,13 @@ function getAmountToCredit(){
 
         switch($textArray[0]){
             case 1: 
-                $menu->check_loan_limit_balance($amount_to_creadit);
+                $menu->check_loan_limit_balance($amount_to_creadit,$customerLoan);
             break;
             case 2:
                 $menu->apply_loan($textArray,$amount_to_creadit,$phoneNumber);
             break;
             case 3:
-                $menu->unpaid_loan();
+                $menu->unpaid_loan($customerLoan);
             break; 
             default: echo "END Inavalid option\n";
                 
