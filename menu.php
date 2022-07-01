@@ -68,9 +68,25 @@ public function apply_loan($textArray,$availableLoanToBorrow,$phoneNumber){
             
 
     }else if($textArray[1]==2 && $level==2){
-        $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
-        echo $response;
 
+
+
+
+        switch($loanDetails['loan_type']){
+            case 1: 
+                 $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+                 echo $response;
+            break;
+            case 3: 
+                $response="END Dear Customer please select the first option
+                to match with option of the current loan ";
+                echo $response;
+            break;
+            default:
+            $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+            echo $response;
+        }
+       
 
     }
     elseif($level==3){
