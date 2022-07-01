@@ -71,10 +71,10 @@ function apply_loan($textArray,$amount_to_credit,$phoneNumber){
 
 function check_loan_limit_balance($loan_limit_balance){
     //check loan limit balance
-if($loan_limit_balance>100){
+
     echo "End dear customer your loan limit is 10,000
     ,your current loan is 6,000. You are allowed to borrow 4000 to reach your loan limit";
-}
+
 
 }
 function repay_loan($textArray){
