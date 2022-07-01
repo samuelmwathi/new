@@ -74,9 +74,10 @@ public function apply_loan($textArray,$amount_to_credit,$phoneNumber){
 
 public function check_loan_limit_balance(){
     $loanbalance=$this->amount_to_creadit-$this->customerCurrentLoan;
-    echo "END dear customer your loan limit is KSH:".$this->amount_to_creadit."
-    ,your current loan is at KSH:".$this->customerCurrentLoan." You are allowed to borrow KSH:".$loanbalance.
-    "to reach your loan limit";
+    echo "END dear customer your loan limit is KSH:"
+    .$this->amount_to_creadit."your current loan is at KSH:".$this->customerCurrentLoan
+    ." You are allowed to borrow KSH:".$loanbalance
+    ."to reach your loan limit";
     //check loan limit balance
 
 }
