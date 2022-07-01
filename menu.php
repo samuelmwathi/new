@@ -53,8 +53,8 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType){
     } else if($textArray[1]==1 && $level==2){
         switch($loanType){
             case 3: 
-                 $response="END Dear Customer please select the second option
-                 to match with option of the current loan ";
+                 $response="END Dear Customer you are only allowed to topup your loan 
+                 if you select payment period that match the current loan";
                  echo $response;
             break;
             default:
