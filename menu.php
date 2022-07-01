@@ -30,12 +30,14 @@ public function main_menu(){
 public function unpaid_loan($repayDate){
    
     if($this->customerCurrentLoan>0){
-        echo "END Dear customer you have unpaid loan of KSH:".$this->customerCurrentLoan."
+        $response="END Dear customer you have unpaid loan of KSH:".$this->customerCurrentLoan."
         to be repaid by ".$repayDate;
+        echo $response;
     }else{
-        echo "END Dear customer you dont have an unpiad loan, check your loan limit
+        $response="END Dear customer you dont have an unpiad loan, check your loan limit
         to apply for a loan/////
         select the option below to apply\n 1 : Apply for a loan";
+        echo $response; 
     }
 
 
