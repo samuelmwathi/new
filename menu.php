@@ -21,14 +21,14 @@ $this->amount_to_creadit=$amount_to_creadit;
 
 public function main_menu(){
     $response = "CON select option\n";
-    $response.="1 : See your loan limit\n";
+    $response.="1 : My loan limit\n";
     $response.="2 : Apply for a loan\n";
-    $response.="3 : See your balance";
+    $response.="3 : My loans";
     return $response;
 }
-public function unpaid_loan($customerLoan){
-    if($customerLoan>0){
-        echo "END Dear customer you have unpaid loan of KSH:".$customerLoan."
+public function unpaid_loan(){
+    if($customerCurrentLoan>0){
+        echo "END Dear customer you have unpaid loan of KSH:".$customerCurrentLoan."
         reply with the option below to  repay\n 1 : repay loan";
     }else{
         echo "END Dear customer you dont have an unpiad loan, check your loan limit
