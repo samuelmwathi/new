@@ -49,11 +49,11 @@ public function apply_loan($textArray,$availableLoanToBorrow,$phoneNumber){
         $response.="2 : (3)Months \n";
         echo $response;
     } else if($textArray[1]==1 && $level==2){
-        $response="CON Enter amount between KSH: 100 and KSH:".$amount_to_credit;
+        $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
         echo $response;
 
     }else if($textArray[1]==2 && $level==2){
-        $response="CON Enter amount between KSH: 100 and KSH:".$amount_to_credit;
+        $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
         echo $response;
 
 
