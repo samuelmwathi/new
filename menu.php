@@ -26,7 +26,7 @@ public function main_menu(){
     $response.="3 : My loans";
     return $response;
 }
-public function unpaid_loan(){
+public function unpaid_loan($customerCurrentLoan){
     if($customerCurrentLoan>0){
         echo "END Dear customer you have unpaid loan of KSH:".$customerCurrentLoan."
         reply with the option below to  repay\n 1 : repay loan";

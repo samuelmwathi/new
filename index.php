@@ -88,7 +88,7 @@ function getcustomerCurrentLoan($phone_No){
                 $menu->apply_loan($textArray,$amount_to_creadit,$phoneNumber);
             break;
             case 3:
-                $menu->unpaid_loan();
+                $menu->unpaid_loan($customerCurrentLoan);
             break; 
             default: echo "END Inavalid option\n";
                 
