@@ -49,17 +49,14 @@ public function apply_loan($textArray,$amount_to_credit,$phoneNumber){
         $response.="2 : (3)Months \n";
         echo $response;
     } else if($textArray[1]==1 && $level==2){
-        echo "CON Please enter your id number:";
-
-
-    }else if($textArray[1]==2 && $level==2){
-        echo "CON Please enter your id number:";
-
-
-    }
-    elseif($level==3){
         $response="CON Enter amount between KSH: 100 and KSH:".$amount_to_credit;
         echo $response;
+
+    }else if($textArray[1]==2 && $level==2){
+        $response="CON Enter amount between KSH: 100 and KSH:".$amount_to_credit;
+        echo $response;
+
+
     }
     elseif($level==4){
         $response="CON Please select account to credit\n";
@@ -67,17 +64,17 @@ public function apply_loan($textArray,$amount_to_credit,$phoneNumber){
         echo $response;
     }
     elseif($level==5){
-        echo "END please wait asyour loan is being processed, Thank you";
+        echo "END Dear customer please wait as your loan is being processed, Thank you!";
     }
 
 }
 
 public function check_loan_limit_balance(){
     $loanbalance=$this->amount_to_creadit-$this->customerCurrentLoan;
-    echo "END dear customer your loan limit is KSH:"
+    $response= "END Dear customer your loan limit is KSH:"
     .$this->amount_to_creadit."your current loan is at KSH:".$this->customerCurrentLoan
-    ." You are allowed to borrow KSH:".$loanbalance
-    ."to reach your loan limit";
+    ." You are allowed to borrow KSH:".$loanbalance."to reach your loan limit";
+    echo $response;
     //check loan limit balance
 
 }
