@@ -39,7 +39,7 @@ public function unpaid_loan($customerCurrentLoan){
 
 }
  
-public function apply_loan($textArray,$amount_to_credit,$phoneNumber){
+public function apply_loan($textArray,$availableLoanToBorrow,$phoneNumber){
 
     $level = count($textArray);
 

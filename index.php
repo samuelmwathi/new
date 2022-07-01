@@ -68,6 +68,7 @@ function getcustomerCurrentLoan($phone_No){
     $text        = $_POST["text"];
     $amount_to_creadit=getAmountToCredit($phoneNumber);
     $customerCurrentLoan=getcustomerCurrentLoan($phoneNumber);
+    $availableLoanToBorrow=$amount_to_creadit-$customerCurrentLoan;
     $menu=new menu($phoneNumber,$customerCurrentLoan,$amount_to_creadit);
     
     header('Content-type: text/plain');
@@ -85,7 +86,7 @@ function getcustomerCurrentLoan($phone_No){
                 $menu->check_loan_limit_balance($amount_to_creadit);
             break;
             case 2:
-                $menu->apply_loan($textArray,$amount_to_creadit,$phoneNumber);
+                $menu->apply_loan($textArray,$availableLoanToBorrow,$phoneNumber);
             break;
             case 3:
                 $menu->unpaid_loan($customerCurrentLoan);
