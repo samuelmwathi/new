@@ -19,7 +19,7 @@ public function main_menu(){
     $response.="3 : See your balance";
     return $response;
 }
-function unpaid_loan(){
+public function unpaid_loan(){
     $result=new Loan_status($this->$phoneNumber);
     $rowCount=$result->rowCount();
     if($rowCount>0){
@@ -36,7 +36,7 @@ function unpaid_loan(){
 
 }
  
-function apply_loan($textArray,$amount_to_credit,$phoneNumber){
+public function apply_loan($textArray,$amount_to_credit,$phoneNumber){
 
     $level = count($textArray);
 
@@ -69,7 +69,7 @@ function apply_loan($textArray,$amount_to_credit,$phoneNumber){
 
 }
 
-function check_loan_limit_balance($loan_limit_balance){
+public function check_loan_limit_balance($loan_limit_balance){
     //check loan limit balance
 
     echo "End dear customer your loan limit is 10,000
@@ -77,7 +77,7 @@ function check_loan_limit_balance($loan_limit_balance){
 
 
 }
-function repay_loan($textArray){
+public function repay_loan($textArray){
 // comming soon 
 }
 
