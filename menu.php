@@ -58,7 +58,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$phoneNumber){
 
 
     }
-    elseif($level==4){
+    elseif($level==3){
         $response="CON Please select account to credit\n";
         $response.="1 :".$phoneNumber;
         echo $response;
