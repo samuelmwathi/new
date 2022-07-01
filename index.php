@@ -113,7 +113,7 @@ function getLoanType($phone_No){
 
         switch($textArray[0]){
             case 1: 
-                $menu->check_loan_limit_balance($amount_to_creadit);
+                $menu->check_loan_limit_balance($amount_to_creadit,$availableLoanToBorrow);
             break;
             case 2:
                 $menu->apply_loan($textArray,$availableLoanToBorrow,getLoanType($phoneNumber),$phoneNumber);
