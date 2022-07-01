@@ -50,7 +50,7 @@ function getcustomerCurrentLoan($phone_No){
         $row=$result->fetch(PDO::FETCH_ASSOC);
             extract($row);
             $unpaidLoan=$row['loan_amount'];
-       return $unpaidLoan;
+       return $row;
     }else
     {
         return 0;
@@ -67,9 +67,10 @@ function getcustomerCurrentLoan($phone_No){
     $phoneNumber = $_POST["phoneNumber"];
     $text        = $_POST["text"];
     $amount_to_creadit=getAmountToCredit($phoneNumber);
-    $customerCurrentLoan=getcustomerCurrentLoan($phoneNumber);
+    $loanDetails=getcustomerCurrentLoan($phoneNumber);
+   
     $availableLoanToBorrow=$amount_to_creadit-$customerCurrentLoan;
-    $menu=new menu($phoneNumber,$customerCurrentLoan,$amount_to_creadit);
+    $menu=new menu($phoneNumber,$loanDetails,$amount_to_creadit);
     
     header('Content-type: text/plain');
   

@@ -5,14 +5,15 @@ class menu{
 protected $text;
 private $phoneNumber;
 protected $session_id;
-protected $customerCurrentLoan;
+protected $loanDetails;
 private $amount_to_creadit;
 
 
 
-public function __construct($phoneNumber,$customerCurrentLoan,$amount_to_creadit){
+
+public function __construct($phoneNumber,$loanDetails,$amount_to_creadit){
 $this->phoneNumber=$phoneNumber;
-$this->customerCurrentLoan=$customerCurrentLoan;
+$this->loanDetails=$loanDetails;
 $this->amount_to_creadit=$amount_to_creadit;
 
 }
@@ -26,10 +27,11 @@ public function main_menu(){
     $response.="3 : My loans";
     return $response;
 }
-public function unpaid_loan($customerCurrentLoan){
-    if($customerCurrentLoan>0){
-        echo "END Dear customer you have unpaid loan of KSH:".$customerCurrentLoan."
-        reply with the option below to  repay\n 1 : repay loan";
+public function unpaid_loan(){
+   
+    if($this->customerCurrentLoan>0){
+        echo "END Dear customer you have unpaid loan of KSH:".$this->customerCurrentLoan."
+        to be repaid by ".$this->loanDetails['repay_date'];
     }else{
         echo "END Dear customer you dont have an unpiad loan, check your loan limit
         to apply for a loan/////
@@ -49,8 +51,21 @@ public function apply_loan($textArray,$availableLoanToBorrow,$phoneNumber){
         $response.="2 : (3)Months \n";
         echo $response;
     } else if($textArray[1]==1 && $level==2){
-        $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
-        echo $response;
+        switch($loanDetails['loan_type']){
+            case 1: 
+                 $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+                 echo $response;
+            break;
+            case 3: 
+                $response="END Dear Customer please select the second option
+                to match with option of the current loan ";
+                echo $response;
+            break;
+            default:
+            $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+            echo $response;
+        }
+            
 
     }else if($textArray[1]==2 && $level==2){
         $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
@@ -63,23 +78,25 @@ public function apply_loan($textArray,$availableLoanToBorrow,$phoneNumber){
         $response.="1 :".$phoneNumber;
         echo $response;
     }
-    elseif($level==5){
+    elseif($level==4){
         echo "END Dear customer please wait as your loan is being processed, Thank you!";
+        //recode to the database 
     }
 
 }
 
 public function check_loan_limit_balance(){
-    $loanbalance=$this->amount_to_creadit-$this->customerCurrentLoan;
+    $loanbalance=$this->amount_to_creadit-$this->$loanDetails['loan_amount'];
     $response= "END Dear customer your loan limit is KSH:"
-    .$this->amount_to_creadit." your current loan is at KSH:" .$this->customerCurrentLoan
+    .$this->amount_to_creadit." your current loan is at KSH:" .$this->$loanDetails['loan_amount']
     .", You are allowed to borrow KSH: ".$loanbalance." to reach your loan limit";
     echo $response;
     //check loan limit balance
 
 }
 
-public function repay_loan($textArray){
+public function back($textArray){
+
 // comming soon 
 }
 
