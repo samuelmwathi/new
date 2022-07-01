@@ -12,6 +12,21 @@ public function __construct($phoneNumber){
 $this->$phoneNumber=$phoneNumber;
 }
 
+public function getCustomerloan(){
+    $result=new Loan_status($this->$phoneNumber);
+    $rowCount=$result->rowCount();
+    if($rowCount>0){
+        $row=$result->fetch(PDO::FETCH_ASSOC);
+        extract($row);
+        $unpaidloan=$row['loan_amount'];
+        return $unpaidloan;
+    }else {
+        return 0;
+    }
+
+
+}
+
 public function main_menu(){
     $response = "CON select option\n";
     $response.="1 : See your loan limit\n";
@@ -20,16 +35,14 @@ public function main_menu(){
     return $response;
 }
 public function unpaid_loan(){
-    $result=new Loan_status($this->$phoneNumber);
-    $rowCount=$result->rowCount();
-    if($rowCount>0){
-        $row=$result->fetch(PDO::FETCH_ASSOC);
-        extract($row);
-        $unpaidloan=$row['loan_amount'];
-        echo "End Dear customer you have unpaid loan of KSH:".$unpaidloan."
+    $unpaidloan=getCustomerloan();
+   
+    if($unpaidloan>0){
+        echo "END Dear customer you have unpaid loan of KSH:".$unpaidloan."
         reply with the option below to  repay\n 1 : repay loan";
     }else{
-        echo "End Dear customer you dont have an unpiad loan,
+        echo "END Dear customer you dont have an unpiad loan, check your loan limit
+        to apply for a loan/////
         select the option below to apply\n 1 : Apply for a loan";
     }
 
@@ -69,14 +82,16 @@ public function apply_loan($textArray,$amount_to_credit,$phoneNumber){
 
 }
 
-public function check_loan_limit_balance($loan_limit_balance){
+public function check_loan_limit_balance($amount_to_creadit){
+    $unpaidloan=getCustomerloan();
+    $loanbalance=$amount_to_creadit-$unpaidloan;
+    echo "END dear customer your loan limit is KSH:".$amount_to_creadit."
+    ,your current loan is at KSH:".$unpaidloan." You are allowed to borrow KSH:".$loanbalance.
+    "to reach your loan limit";
     //check loan limit balance
 
-    echo "END dear customer your loan limit is 10,000
-    ,your current loan is 6,000. You are allowed to borrow 4000 to reach your loan limit";
-
-
 }
+
 public function repay_loan($textArray){
 // comming soon 
 }

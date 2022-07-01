@@ -65,7 +65,7 @@ function getAmountToCredit(){
 
         switch($textArray[0]){
             case 1: 
-                $menu->check_loan_limit_balance(200);
+                $menu->check_loan_limit_balance($amount_to_creadit);
             break;
             case 2:
                 $menu->apply_loan($textArray,$amount_to_creadit,$phoneNumber);
