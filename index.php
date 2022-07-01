@@ -50,7 +50,36 @@ function getcustomerCurrentLoan($phone_No){
         $row=$result->fetch(PDO::FETCH_ASSOC);
             extract($row);
             $unpaidLoan=$row['loan_amount'];
-       return $row;
+       return $unpaidLoan;
+    }else
+    {
+        return 0;
+    }
+}
+function getRepaymentDate($phone_No){
+    $payment=new Loan_status($phone_No);
+    $result=$payment->get_unpaid_loan($phone_No);
+    $row_count=$result->rowCount();
+    if($row_count>0){
+        $row=$result->fetch(PDO::FETCH_ASSOC);
+            extract($row);
+            $repayDate=$row['repay_date'];
+       return $repayDate;
+    }else
+    {
+        return;
+    }
+
+}
+function getLoanType($phone_No){
+    $payment=new Loan_status($phone_No);
+    $result=$payment->get_unpaid_loan($phone_No);
+    $row_count=$result->rowCount();
+    if($row_count>0){
+        $row=$result->fetch(PDO::FETCH_ASSOC);
+            extract($row);
+            $loanType=$row['loan_type'];
+       return $loanType;
     }else
     {
         return 0;
@@ -67,10 +96,10 @@ function getcustomerCurrentLoan($phone_No){
     $phoneNumber = $_POST["phoneNumber"];
     $text        = $_POST["text"];
     $amount_to_creadit=getAmountToCredit($phoneNumber);
-    $loanDetails=getcustomerCurrentLoan($phoneNumber);
-   
+    $customerCurrentLoan=getcustomerCurrentLoan($phoneNumber);
+   //getting the amount available a customer can borrow
     $availableLoanToBorrow=$amount_to_creadit-$customerCurrentLoan;
-    $menu=new menu($phoneNumber,$loanDetails,$amount_to_creadit);
+    $menu=new menu($phoneNumber,$customerCurrentLoan,$amount_to_creadit);
     
     header('Content-type: text/plain');
   
@@ -87,10 +116,10 @@ function getcustomerCurrentLoan($phone_No){
                 $menu->check_loan_limit_balance($amount_to_creadit);
             break;
             case 2:
-                $menu->apply_loan($textArray,$availableLoanToBorrow,$phoneNumber);
+                $menu->apply_loan($textArray,$availableLoanToBorrow,getLoanType($phoneNumber));
             break;
             case 3:
-                $menu->unpaid_loan($customerCurrentLoan);
+                $menu->unpaid_loan(getRepaymentDate($phoneNumber));
             break; 
             default: echo "END Inavalid option\n";
                 
