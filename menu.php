@@ -27,11 +27,11 @@ public function main_menu(){
     $response.="3 : My loans";
     return $response;
 }
-public function unpaid_loan(){
+public function unpaid_loan($repayDate){
    
     if($this->customerCurrentLoan>0){
         echo "END Dear customer you have unpaid loan of KSH:".$this->customerCurrentLoan."
-        to be repaid by ".$this->loanDetails['repay_date'];
+        to be repaid by ".$repayDate;
     }else{
         echo "END Dear customer you dont have an unpiad loan, check your loan limit
         to apply for a loan/////
@@ -41,7 +41,7 @@ public function unpaid_loan(){
 
 }
  
-public function apply_loan($textArray,$availableLoanToBorrow,$repayDate,$loanType){
+public function apply_loan($textArray,$availableLoanToBorrow,$loanType){
 
     $level = count($textArray);
 
