@@ -60,8 +60,15 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                  echo $response;
             break;
             default:
-                 $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
-                 echo $response;
+                 if($this->amount_to_creadit<0){
+                    $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
+                    echo $response;
+                 } 
+                 else{
+                    $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+                    echo $response;
+                 }
+                 
         }
             
 
@@ -69,13 +76,19 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
 
         switch($loanType){
             case 1: 
-                $response="END Dear Customer please select the first option
-                to match with option of the current loan ";
+                $response="END Dear Customer you are only allowed to topup your loan 
+                if you select payment period that match the current loan";
                 echo $response;
             break;
             default:
-            $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
-            echo $response;
+                   if($this->amount_to_creadit<0){
+                  $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
+                 echo $response;
+                 } 
+                   else{
+                        $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+                      echo $response;
+             }
         }
        
 
