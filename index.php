@@ -14,7 +14,7 @@ include_once 'menu.php';
     $sum=0;
     $amount_to_creadit=0;
     //get sum of net pay
-    if($row_count>=6){
+    if($row_count>=4){
         //loop through the row get the net pay and add to sum
         while($row=$result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
