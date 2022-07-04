@@ -7,14 +7,16 @@ private $phoneNumber;
 protected $session_id;
 protected $customerCurrentLoan;
 private $amount_to_creadit;
+private $repayDate;
 
 
 
 
-public function __construct($phoneNumber,$customerCurrentLoan,$amount_to_creadit){
+public function __construct($phoneNumber,$customerCurrentLoan,$amount_to_creadit,$repayDate){
 $this->phoneNumber=$phoneNumber;
 $this->customerCurrentLoan=$customerCurrentLoan;
 $this->amount_to_creadit=$amount_to_creadit;
+$this->repayDate=$repayDate;
 
 }
 
@@ -60,15 +62,36 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                  echo $response;
             break;
             default:{
-                if($this->amount_to_creadit<=0){
-                    $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
-                    echo $response;
-                    break;
-                 } 
-                 else{
-                    $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
-                    echo $response;
-                 }
+                if($repayDate==0){
+                    if($this->amount_to_creadit<=0){
+                        $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
+                        echo $response;
+                        break;
+                     } 
+                     else{
+                        $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+                        echo $response;
+                     }
+                }else{
+                    $current_date=date('y-m-d');
+                    if($this->repayDate>$current_date){
+                        if($this->amount_to_creadit<=0){
+                            $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
+                            echo $response;
+                            break;
+                         } 
+                         else{
+                            $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+                            echo $response;
+                         }
+                    }else{
+                        $response="ENd Dear Customer you have loan that if over due, that was to be paid by".$this->repayDate;
+                        echo $response;
+                    }
+
+                }
+               
+                
             }
                 
                  

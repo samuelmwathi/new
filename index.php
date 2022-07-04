@@ -67,7 +67,7 @@ function getRepaymentDate($phone_No){
        return $repayDate;
     }else
     {
-        return;
+        return 0;
     }
 
 }
@@ -97,9 +97,10 @@ function getLoanType($phone_No){
     $text        = $_POST["text"];
     $amount_to_creadit=getAmountToCredit($phoneNumber);
     $customerCurrentLoan=getcustomerCurrentLoan($phoneNumber);
+    $repayDate=getRepaymentDate($phoneNumber);
    //getting the amount available a customer can borrow
     $availableLoanToBorrow=$amount_to_creadit-$customerCurrentLoan;
-    $menu=new menu($phoneNumber,$customerCurrentLoan,$amount_to_creadit);
+    $menu=new menu($phoneNumber,$customerCurrentLoan,$amount_to_creadit,$repayDate);
     
     header('Content-type: text/plain');
   
@@ -119,7 +120,7 @@ function getLoanType($phone_No){
                 $menu->apply_loan($textArray,$availableLoanToBorrow,getLoanType($phoneNumber),$phoneNumber);
             break;
             case 3:
-                $menu->unpaid_loan(getRepaymentDate($phoneNumber));
+                $menu->unpaid_loan($repayDate);
             break; 
             default: echo "END Inavalid option\n";
                 
