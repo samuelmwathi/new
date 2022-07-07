@@ -1,6 +1,7 @@
 <?php
 include_once __DIR__.'/classes/payment_details.php';
 include_once __DIR__.'/classes/loan_status.php';
+include_once __DIR__. '/config/config.php';
 class menu{
 protected $text;
 private $phoneNumber;
@@ -176,7 +177,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
     }
     elseif($level==3){
         if($textArray[2] <100 || $textArray[2] > $availableLoanToBorrow ){
-            $response="END dear customer please enter loan amount within your loan bracket";
+            $response="END Dear customer please enter loan amount within your loan bracket, Thank you!";
             echo $response;
         }else{
             $response="CON Please select account to credit\n";
@@ -187,6 +188,31 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
     }
     elseif($level==4){
         echo "END Dear customer please wait as your loan is being processed, Thank you!";
+        //check if a customer has an existing loan if yes update the database else create a new recode in the data base
+    
+        if ($this->repayDate == $comparedate ){
+//create a new recode
+///INSERT INTO `loan_status` (`loan_id`, `member_id`, `phone_number`, `loan_amount`, `repay_date`,
+// `loan_status`, `loan_type`, `processing_date`)
+// VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', CURRENT_TIMESTAMP)
+$db=new connect;
+$loan_status=array();
+$result=$db->prepare("INSERT INTO `loan_status` (`loan_id`, `member_id`, `phone_number`, `loan_amount`, `repay_date`,
+// `loan_status`, `loan_type`, `processing_date`) VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', '2022-08-07')  ");
+$result->execute();
+if($result){
+    echo " END recoded";
+}else {
+    # code...
+    echo "END not recoded";
+}
+
+        }else{
+//update the existing recode
+
+
+        }
+
         //recode to the database 
     }
 
