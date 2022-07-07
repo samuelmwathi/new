@@ -196,16 +196,11 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
 // `loan_status`, `loan_type`, `processing_date`)
 // VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', CURRENT_TIMESTAMP)
 $db=new connect;
-$loan_status=array();
 $result=$db->prepare("INSERT INTO `loan_status` (`loan_id`, `member_id`, `phone_number`, `loan_amount`, `repay_date`,
 // `loan_status`, `loan_type`, `processing_date`) VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', '2022-08-07')  ");
 $result->execute();
-if($result){
     echo " END recoded";
-}else {
-    # code...
-    echo "END not recoded";
-}
+
 
         }else{
 //update the existing recode
