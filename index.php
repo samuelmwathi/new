@@ -67,7 +67,7 @@ function getRepaymentDate($phone_No){
        return $repayDate;
     }else
     {
-        return 0;
+        return;
     }
 
 }
