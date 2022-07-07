@@ -77,7 +77,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                 }else{
                     $response;
                     $current_date=date('y-m-d');
-                    if($this->repayDate >=$current_date){
+                    if(0==1){
                         if($this->amount_to_creadit<=0){
                             $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
                             echo $response;
