@@ -54,7 +54,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
         $response.="1 : (1)Month \n";
         $response.="2 : (3)Months \n";
         echo $response;
-     } else if($textArray[1]==1){
+     } else if($textArray[1]==1 && $level==2){
         echo "END the devial is a liae";
             
       }else if($textArray[1]==2 && $level==2){
