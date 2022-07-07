@@ -62,6 +62,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                  echo $response;
             break;
             default:{
+            
                 $current_date=date('y-m-d');
                 $date=date('y-m-d',strtotime(2009-10-6));
                
@@ -81,7 +82,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                 }else{
 
                     if(2==2){
-                       echo "hello";
+                       echo "CON hello";
                     }else{
                         $response="ENd Dear Customer you have loan that is over due, that was to be paid by".$this->repayDate;
                         echo $response;
