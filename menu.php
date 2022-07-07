@@ -55,8 +55,26 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
         $response.="2 : (3)Months \n";
         echo $response;
      } else if($textArray[1]==1 && $level==2){
-        echo "END the devial is a liae";
-            
+
+        switch($loanType){
+            case 3: 
+                $response="END Dear Customer you are only allowed to topup your loan 
+                if you select payment period that match the current loan";
+                echo $response;
+            break;
+            default:{
+                if($this->amount_to_creadit<=0){
+                    $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
+                   echo $response;
+                   } 
+                     else{
+                          $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+                        echo $response;
+               }
+            }
+                  
+        }
+         //one month loan -----end------//   
       }else if($textArray[1]==2 && $level==2){
 
         switch($loanType){
@@ -77,7 +95,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
             }
                   
         }
-       
+       //3 month loan ----end-----//
 
     }
     elseif($level==3){
