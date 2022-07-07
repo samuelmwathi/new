@@ -69,7 +69,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                         break;
                      } 
                      else{
-                        $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+                        $response="CON Enter amount between ..........KSH: 100 and KSH:".$availableLoanToBorrow;
                         echo $response;
                      }
                 }else{
