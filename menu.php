@@ -8,6 +8,7 @@ protected $session_id;
 protected $customerCurrentLoan;
 private $amount_to_creadit;
 private $repayDate;
+private $current_date;
 
 
 
@@ -17,6 +18,7 @@ $this->phoneNumber=$phoneNumber;
 $this->customerCurrentLoan=$customerCurrentLoan;
 $this->amount_to_creadit=$amount_to_creadit;
 $this->repayDate=$repayDate;
+$this->current_date=date('y-m-');
 
 }
 
@@ -63,7 +65,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
             break;
             default:{
                 $date=date("y-m-d",strtotime(2009-10-6));
-                if($this->repayDate==$date){
+                if(!($this->repayDate!=$date)){
                     if($this->amount_to_creadit<=0){
                         $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
                         echo $response;
@@ -75,7 +77,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                         echo $response;
                      }
                 }else{
-                    $response;
+                    
                     $current_date=date('y-m-d');
                     if(0==1){
                         if($this->amount_to_creadit<=0){
