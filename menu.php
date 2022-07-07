@@ -55,20 +55,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
         $response.="2 : (3)Months \n";
         echo $response;
      } else if($textArray[1]==1 && $level==2){
-        switch($loanType){
-            case 3: 
-                 $response="END Dear Customer you are only allowed to topup your loan 
-                 if you select payment period that match the current loan";
-                 echo $response;
-                 break;
-            default:{
-                $response="END .................. Dear Customer you are only allowed to topup your loan 
-                 if you select payment period that match the current loan";
-                 echo $response;
-            }
-                
-                 
-        }
+        echo "END the devial is a liae";
             
       }else if($textArray[1]==2 && $level==2){
 
