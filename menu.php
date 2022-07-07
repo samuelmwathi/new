@@ -64,7 +64,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
             default:{
                 $current_date=date('y-m-d');
                 $date=date('y-m-d',strtotime(2009-10-6));
-               $newdate= date('y-m-d',strtotime($repayDate));
+               
 
 
                 if(!($repayDate!=$date)){
