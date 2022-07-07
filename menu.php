@@ -175,9 +175,14 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
 
     }
     elseif($level==3){
-        $response="CON Please select account to credit\n";
-        $response.="1 :".$phoneNumber;
-        echo $response;
+        if($textArray[2] <100 || $textArray[2] > $availableLoanToBorrow ){
+            $response="END dear customer please enter loan amount within your loan bracket";
+        }else{
+            $response="CON Please select account to credit\n";
+            $response.="1 :".$phoneNumber;
+            echo $response;
+        }
+        
     }
     elseif($level==4){
         echo "END Dear customer please wait as your loan is being processed, Thank you!";
