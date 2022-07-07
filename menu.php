@@ -62,9 +62,9 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                  echo $response;
             break;
             default:{
-                $current_date=date('y-m-d');
-                $date=date("y-m-d",strtotime(2009-10-6));
-                if(!($this->repayDate!=$date)){
+                $current_date=date('y-m-d',strtotime(date('y-m-d')));
+                $date=date('y-m-d',strtotime(2009-10-6));
+                if(!($repayDate!=$date)){
                     if($this->amount_to_creadit<=0){
                         $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
                         echo $response;
@@ -77,7 +77,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                      }
                 }else{
 
-                    if($current_date < $this->repayDate){
+                    if($current_date < $repayDate){
                         if($this->amount_to_creadit<=0){
                             $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
                             echo $response;
