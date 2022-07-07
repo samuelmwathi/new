@@ -75,6 +75,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                         echo $response;
                      }
                 }else{
+                    echo"END hello"
                     $current_date=date('y-m-d');
                     if($this->repayDate >=$current_date){
                         if($this->amount_to_creadit<=0){
