@@ -115,23 +115,61 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
          //one month loan -----end------//   
       }else if($textArray[1]==2 && $level==2){
 
-        switch($loanType){
-            case 1: 
-                $response="END Dear Customer you are only allowed to topup your loan 
-                if you select payment period that match the current loan";
-                echo $response;
-            break;
-            default:{
-                if($this->amount_to_creadit<=0){
-                    $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
-                   echo $response;
-                   } 
-                     else{
-                          $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
-                        echo $response;
-               }
+        $comparedate=date("y-m-d",strtotime(2009-10-6));
+       
+        if ($this->repayDate == $comparedate ){
+            switch($loanType){
+                case 1: 
+                    $response="END Dear Customer you are only allowed to topup your loan 
+                    if you select payment period that match the current loan";
+                    echo $response;
+                break;
+                default:{
+                    if($this->amount_to_creadit<=0){
+                        $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
+                       echo $response;
+                       } 
+                         else{
+                              $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+                            echo $response;
+                   }
+                }      
             }
-                  
+            ///else if they is date in the data base do the following 
+        }else{
+            $currentday=date('y-m-d');
+            if($this->repayDate > $currentday ){
+                switch($loanType){
+                    case 1: 
+                        $response="END Dear Customer you are only allowed to topup your loan 
+                        if you select payment period that match the current loan";
+                        echo $response;
+                    break;
+                    default:{
+                        if($this->amount_to_creadit<=0){
+                            $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
+                           echo $response;
+                           } 
+                             else{
+                                  $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+                                echo $response;
+                       }
+                    }      
+                }
+
+            }else{
+                $response="END Dear Customer you have an over due loan that was to be paid by ".$this->repayDate.
+                ". Repay the loan to continue enjoying our loan services";
+                echo $response;
+            }
+
+
+
+            
+
+
+
+
         }
        //3 month loan ----end-----//
 
