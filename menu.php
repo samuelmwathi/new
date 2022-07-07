@@ -55,11 +55,8 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
         $response.="2 : (3)Months \n";
         echo $response;
     } else if($textArray[1]==1 && $level==2){
-        echo "CON hello";
-                
-                 
-        }
-            
+       
+            echo "END hello";
 
     }else if($textArray[1]==2 && $level==2){
 
