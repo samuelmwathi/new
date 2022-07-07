@@ -56,7 +56,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
         echo $response;
      } else if($textArray[1]==1 && $level==2){
 
-        $comparedate=date("y-m-d",strtotime(2009-10-6))
+        $comparedate=date("y-m-d",strtotime(2009-10-6));
         $currentday=date('y-m-d');
         if ($this->repayDate == $comparedate ){
             switch($loanType){
