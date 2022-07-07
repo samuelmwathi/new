@@ -38,8 +38,7 @@ public function unpaid_loan($repayDate){
         echo $response;
     }else{
         $response="END Dear customer you dont have an unpiad loan, check your loan limit
-        to apply for a loan/////
-        select the option below to apply\n 1 : Apply for a loan";
+        to apply";
         echo $response; 
     }
 
