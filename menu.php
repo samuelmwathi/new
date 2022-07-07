@@ -45,7 +45,7 @@ public function unpaid_loan($repayDate){
 
 }
  
-public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNumber){
+public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNumber,$repayDate){
 
     $level = count($textArray);
 
@@ -93,7 +93,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                         echo $response;
                     }
                     
-                   echo "END hello there";
+                   
 
                 }
                
