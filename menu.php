@@ -87,8 +87,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                             break;
                          } 
                          else{
-                            $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow.
-                            $newdate." ".$current_date;
+                            $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow." ".$current_date;
                             echo $response;
                          }
                     }else{
