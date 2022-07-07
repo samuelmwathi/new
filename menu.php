@@ -75,7 +75,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                 }
                   
         }else{
-            echo "END hhhhdhdbbfvdh"
+            echo "END hhhhdhdbbfvdh";
         }
 
             
