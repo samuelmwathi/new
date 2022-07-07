@@ -211,7 +211,7 @@ public function check_loan_limit_balance($availableLoanToBorrow){
     $loanbalance=($this->amount_to_creadit)-($this->$customerCurrentLoan);
     $response= "END Dear customer your loan limit is KSH:"
     .$this->amount_to_creadit." your current loan is at KSH:" .$this->customerCurrentLoan
-    .", You are allowed to borrow KSH: ".$loavailableLoanToBorrowanbalance." to reach your loan limit";
+    .", You are allowed to borrow KSH: ".$availableLoanToBorrow." to reach your loan limit";
     echo $response;
     //check loan limit balance
 
