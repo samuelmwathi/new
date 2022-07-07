@@ -187,7 +187,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
         
     }
     elseif($level==4){
-        echo "END Dear customer please wait as your loan is being processed, Thank you!";
+       
         //check if a customer has an existing loan if yes update the database else create a new recode in the data base
     
         if ($this->repayDate == $comparedate ){
