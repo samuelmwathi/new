@@ -118,7 +118,7 @@ function getLoanType($phone_No){
                 $menu->check_loan_limit_balance($amount_to_creadit,$availableLoanToBorrow);
             break;
             case 2:
-                $menu->apply_loan($textArray,$availableLoanToBorrow,getLoanType($phoneNumber),$phoneNumber,getRepaymentDate($phoneNumber));
+                $menu->apply_loan($textArray,$availableLoanToBorrow,getLoanType($phoneNumber),$phoneNumber);
             break;
             case 3:
                 $menu->unpaid_loan($repayDate);
