@@ -67,7 +67,8 @@ function getRepaymentDate($phone_No){
        return $repayDate;
     }else
     {
-        return;
+        $repayDate=date("y-m-d",strtotime(2009-10-6));
+        return $repayDate;
     }
 
 }
