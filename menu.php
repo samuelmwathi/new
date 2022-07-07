@@ -62,7 +62,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                  echo $response;
             break;
             default:{
-                $current_date=date('y-m-d',strtotime(date('y-m-d')));
+                $current_date=date('y-m-d');
                 $date=date('y-m-d',strtotime(2009-10-6));
                 if(!($repayDate!=$date)){
                     if($this->amount_to_creadit<=0){
