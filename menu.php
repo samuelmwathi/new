@@ -62,9 +62,10 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                  echo $response;
             break;
             default:{
-                if($this->repayDate===0){
+                if($repayDate==0){
                     if($this->amount_to_creadit<=0){
-                        $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
+                        $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit
+                        ."   ".$this->repayDate;
                         echo $response;
                         break;
                      } 
