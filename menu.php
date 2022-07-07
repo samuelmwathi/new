@@ -8,7 +8,6 @@ protected $session_id;
 protected $customerCurrentLoan;
 private $amount_to_creadit;
 private $repayDate;
-private $current_date;
 
 
 
@@ -18,7 +17,6 @@ $this->phoneNumber=$phoneNumber;
 $this->customerCurrentLoan=$customerCurrentLoan;
 $this->amount_to_creadit=$amount_to_creadit;
 $this->repayDate=$repayDate;
-$this->current_date=date('y-m-');
 
 }
 
@@ -64,6 +62,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                  echo $response;
             break;
             default:{
+                $current_date=date('y-m-d');
                 $date=date("y-m-d",strtotime(2009-10-6));
                 if(!($this->repayDate!=$date)){
                     if($this->amount_to_creadit<=0){
@@ -77,6 +76,22 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                         echo $response;
                      }
                 }else{
+
+                    if($current_date < $this->repayDate){
+                        if($this->amount_to_creadit<=0){
+                            $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
+                            echo $response;
+                            break;
+                         } 
+                         else{
+                            $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow.
+                            $repayDate." ".$current_date;
+                            echo $response;
+                         }
+                    }else{
+                        $response="ENd Dear Customer you have loan that is over due, that was to be paid by".$this->repayDate;
+                        echo $response;
+                    }
                     
                    echo "END hello there";
 
