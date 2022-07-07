@@ -64,7 +64,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
             default:{
                 $current_date=date('y-m-d');
                 $date=date('y-m-d',strtotime(2009-10-6));
-                $date=$date->format('y-m');
+               $newdate= date('y-m-d',strtotime($repayDate));
 
 
                 if(!($repayDate!=$date)){
@@ -88,7 +88,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                          } 
                          else{
                             $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow.
-                            $repayDate." ".$current_date;
+                            $newdate." ".$current_date;
                             echo $response;
                          }
                     }else{
