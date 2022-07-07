@@ -72,13 +72,15 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                               $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
                             echo $response;
                    }
-                }
-                  
+                }      
+            }
         }else{
-            echo "END hhhhdhdbbfvdh";
-        }
+            echo "END theredjbfjdbvfd";
 
-            
+
+
+
+
         }
          //one month loan -----end------//   
       }else if($textArray[1]==2 && $level==2){
