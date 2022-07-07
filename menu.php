@@ -78,22 +78,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                      }
                 }else{
                     
-                    $current_date=date('y-m-d');
-                    if(0==1){
-                        if($this->amount_to_creadit<=0){
-                            $response="END you are not allowed to borrow, Your loan Limit is at KSH:".$this->amount_to_creadit;
-                            echo $response;
-                            break;
-                         } 
-                         else{
-                            $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow.
-                            $repayDate." ".$current_date;
-                            echo $response;
-                         }
-                    }else{
-                        $response="ENd Dear Customer you have loan that is over due, that was to be paid by".$this->repayDate;
-                        echo $response;
-                    }
+                   echo "END hello there";
 
                 }
                
