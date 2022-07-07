@@ -55,8 +55,10 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
         $response.="2 : (3)Months \n";
         echo $response;
      } else if($textArray[1]==1 && $level==2){
+
+        $comparedate=date("y-m-d",strtotime(2009-10-6))
         $currentday=date('y-m-d');
-        if ($this->repayDate > $currentday ){
+        if ($this->repayDate == $comparedate ){
             switch($loanType){
                 case 3: 
                     $response="END Dear Customer you are only allowed to topup your loan 
@@ -75,8 +77,8 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                 }      
             }
         }else{
-            echo "END theredjbfjdbvfd";
-
+            $response="CON Enter amount between KSH: 100 and KSH:".$availableLoanToBorrow;
+                            echo $response;
 
 
 
