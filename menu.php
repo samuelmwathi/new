@@ -177,6 +177,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
     elseif($level==3){
         if($textArray[2] <100 || $textArray[2] > $availableLoanToBorrow ){
             $response="END dear customer please enter loan amount within your loan bracket";
+            echo $response;
         }else{
             $response="CON Please select account to credit\n";
             $response.="1 :".$phoneNumber;
