@@ -31,12 +31,7 @@ public function main_menu(){
     return $response;
 }
 public function unpaid_loan($repayDate){
-    //connect to database
-    $conn=mysqli_connect(hostname:"remotemysql.com",
-                         username: "62ufR36NQc",
-                         password:"Q6jiKEZ2vP",
-                         database:"62ufR36NQc");
-
+    
    
     if($this->customerCurrentLoan>0){
         $response="END Dear customer you have unpaid loan of KSH:".$this->customerCurrentLoan."
@@ -192,16 +187,22 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
         
     }
     elseif($level==4){
+        //connect to database
+    $conn=mysqli_connect(hostname:"remotemysql.com",
+    username: "62ufR36NQc",
+    password:"Q6jiKEZ2vP",
+    database:"62ufR36NQc");
+
        
         //check if a customer has an existing loan if yes update the database else create a new recode in the data base
         $comparedate=date("y-m-d",strtotime(2009-10-6));
         if ($this->repayDate == $comparedate ){
-    // $sqlsmt=("INSERT INTO `loan_status` (loan_id, member_id, phone_number, loan_amount, repay_date,
-    //  loan_status, loan_type, processing_date) VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', '2022-07-20');");
-    //  $execute=mysqli_query($conn,$sqlsmt) or die (mysqli_error());
-    //  if($execute){
-    //     echo "END successful";
-    //  }
+    $sqlsmt=("INSERT INTO `loan_status` (loan_id, member_id, phone_number, loan_amount, repay_date,
+     loan_status, loan_type, processing_date) VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', '2022-07-20');");
+     $execute=mysqli_query($conn,$sqlsmt);
+     if($execute){
+        echo "END successful";
+     }
     echo "END Dear customer please wait as your loan is being processed, Thank you!".$comparedate ;
 
         }else{
