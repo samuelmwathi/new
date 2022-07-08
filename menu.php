@@ -210,7 +210,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
 public function check_loan_limit_balance($availableLoanToBorrow){
     $amount=$this->amount_to_creadit;
     $loan=$this->$customerCurrentLoan;
-    $balance=9800-$loan;
+    $balance=$loan-9800;
     $response= "END Dear customer your loan limit is KSH:"
     .$this->amount_to_creadit." your current loan is at KSH:" .$this->customerCurrentLoan
     .", You are allowed to borrow KSH: ". $balance." to reach your loan limit";
