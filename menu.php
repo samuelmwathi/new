@@ -52,7 +52,7 @@ public function unpaid_loan($repayDate){
 }
  
 public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNumber){
-
+    $comparedate=date("y-m-d",strtotime(2009-10-6));
     $level = count($textArray);
 
     if($level == 1){
