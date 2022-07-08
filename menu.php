@@ -213,13 +213,14 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
 
 
 
-    $sqlsmt=("INSERT INTO `loan_status` (loan_id, member_id, phone_number, loan_amount, repay_date,
-    loan_status, loan_type, processing_date) 
-    VALUES (NULL, '3', '$phoneNumber', ' $loanApplied', '$db_repaydate', '-1', '$loanType', '$processingDate');");
+    
        
         //check if a customer has an existing loan if yes update the database else create a new recode in the data base
         $comparedate=date("y-m-d",strtotime(2009-10-6));
         if ($this->repayDate == $comparedate ){
+            $sqlsmt=("INSERT INTO `loan_status` (loan_id, member_id, phone_number, loan_amount, repay_date,
+    loan_status, loan_type, processing_date) 
+    VALUES (NULL, '3', '$phoneNumber', ' $loanApplied', '$db_repaydate', '-1', '$loanType', '$processingDate');");
      $execute=mysqli_query($conn,$sqlsmt);
      if($execute){
         echo "END successful";
