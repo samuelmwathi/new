@@ -250,13 +250,6 @@ public function back($textArray){
 
 // comming soon 
 }
-
-
-
-
-
-
-
 }
 
 
