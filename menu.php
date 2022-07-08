@@ -31,6 +31,12 @@ public function main_menu(){
     return $response;
 }
 public function unpaid_loan($repayDate){
+    //connect to database
+    $conn=mysqli_connect(hostname:"remotemysql.com",
+                         username: "62ufR36NQc",
+                         password:"Q6jiKEZ2vP",
+                         database:"62ufR36NQc");
+
    
     if($this->customerCurrentLoan>0){
         $response="END Dear customer you have unpaid loan of KSH:".$this->customerCurrentLoan."
@@ -194,7 +200,17 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
 ///INSERT INTO `loan_status` (`loan_id`, `member_id`, `phone_number`, `loan_amount`, `repay_date`,
 // `loan_status`, `loan_type`, `processing_date`)
 // VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', CURRENT_TIMESTAMP)
-
+if(mysqli_connect_error()){
+    die("connection error :",mysqli_connect_error());
+}else{
+    $sqlsmt=("INSERT INTO `loan_status` (loan_id, member_id, phone_number, loan_amount, repay_date,
+     loan_status, loan_type, processing_date)
+     VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', '2022-07-20')");
+     $execute=mysqli_query($conn,$sqlsmt) or die (mysqli_error());
+     if($execute){
+        echo "END successful";
+     }
+}
 
         }else{
 //update the existing recode
@@ -208,9 +224,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
 }
 
 public function check_loan_limit_balance($availableLoanToBorrow){
-    $amount=$this->amount_to_creadit;
-    $loan=$this->$customerCurrentLoan;
-    $balance=$loan-9800;
+
     $response= "END Dear customer your loan limit is KSH:"
     .$this->amount_to_creadit." your current loan is at KSH:" .$this->customerCurrentLoan
     .", You are allowed to borrow KSH: ". ($this->amount_to_creadit-($this->customerCurrentLoan))." to reach your loan limit";
