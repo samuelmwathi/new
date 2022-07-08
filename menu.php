@@ -210,7 +210,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
      }
     }else{
 //update the existing recode
-echo "END Dear customer please wait as your loan is being processed, Thank you!".$this->repayDate;
+echo "END Dear customer please wait as your loan is being processed, Thank you!".$this->repayDate.$comparedate;
 
         }
 
