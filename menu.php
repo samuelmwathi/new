@@ -196,20 +196,13 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
         //check if a customer has an existing loan if yes update the database else create a new recode in the data base
         $comparedate=date("y-m-d",strtotime(2009-10-6));
         if ($this->repayDate == $comparedate ){
-//create a new recode
-///INSERT INTO `loan_status` (`loan_id`, `member_id`, `phone_number`, `loan_amount`, `repay_date`,
-// `loan_status`, `loan_type`, `processing_date`)
-// VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', CURRENT_TIMESTAMP)
-// if(mysqli_connect_error()){
-//     die("connection error n",mysqli_connect_error());
-// }else{
-    $sqlsmt=("INSERT INTO `loan_status` (loan_id, member_id, phone_number, loan_amount, repay_date,
-     loan_status, loan_type, processing_date) VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', '2022-07-20');");
-     $execute=mysqli_query($conn,$sqlsmt) or die (mysqli_error());
-     if($execute){
-        echo "END successful";
-     }
-
+    // $sqlsmt=("INSERT INTO `loan_status` (loan_id, member_id, phone_number, loan_amount, repay_date,
+    //  loan_status, loan_type, processing_date) VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', '2022-07-20');");
+    //  $execute=mysqli_query($conn,$sqlsmt) or die (mysqli_error());
+    //  if($execute){
+    //     echo "END successful";
+    //  }
+    echo "END Dear customer please wait as your loan is being processed, Thank you!".$comparedate ;
 
         }else{
 //update the existing recode
