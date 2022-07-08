@@ -192,16 +192,17 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
         
     }
     elseif($level==4){
-       //create a new recode
+       
+        //check if a customer has an existing loan if yes update the database else create a new recode in the data base
+    
+        if ($this->repayDate == $comparedate ){
+//create a new recode
 ///INSERT INTO `loan_status` (`loan_id`, `member_id`, `phone_number`, `loan_amount`, `repay_date`,
 // `loan_status`, `loan_type`, `processing_date`)
 // VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', CURRENT_TIMESTAMP)
 // if(mysqli_connect_error()){
-//  die("connection error n",mysqli_connect_error());
+//     die("connection error n",mysqli_connect_error());
 // }else{
-        //check if a customer has an existing loan if yes update the database else create a new recode in the data base
-        $comparedate=date("y-m-d",strtotime(2009-10-6));
-        if ($this->repayDate == $comparedate ){
     $sqlsmt=("INSERT INTO `loan_status` (loan_id, member_id, phone_number, loan_amount, repay_date,
      loan_status, loan_type, processing_date) VALUES (NULL, '3', '+254777659523', '100', '2022-07-07', '0', '1', '2022-07-20');");
      $execute=mysqli_query($conn,$sqlsmt) or die (mysqli_error());
@@ -210,9 +211,9 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
      }
 
 
-    }else{
+        }else{
 //update the existing recode
-echo "END Dear customer please wait as your loan is being processed, Thank you!";
+ echo "END Dear customer please wait as your loan is being processed, Thank you!";
 
         }
 
