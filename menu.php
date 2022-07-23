@@ -222,7 +222,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
     }else{
             $sql =(" UPDATE `loan_status` as ls SET `loan_amount`= 400 WHERE ls.phone_number='+254723595220' 
             and ls.loan_status='-1';");
-             $execute=mysqli_query($conn,$sqlsmt);
+             $execute=mysqli_query($conn,$sql);
              if($execute){
                 echo "END successful";
         
