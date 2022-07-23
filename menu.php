@@ -139,7 +139,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
             ///else if they is date in the data base do the following 
         }else{
             $currentday=date('y-m-d');
-            if($this->repayDate > $currentday ){
+           if($this->repayDate > $currentday){
                 switch($loanType){
                     case 1: 
                         $response="END Dear Customer you are only allowed to topup your loan 
@@ -194,8 +194,8 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
     database:"62ufR36NQc");
 
     $t=time();
-    echo($t . "<br>");
-    echo(date("Y-m-d",$t));
+    // echo($t . "<br>");
+    // echo(date("Y-m-d",$t));
 
 
 
