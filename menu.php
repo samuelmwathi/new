@@ -81,7 +81,9 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
             ///else if they is date in the data base do the following 
         }else{
             $currentday=date('y-m-d');
-            if($this->repayDate > $currentday ){
+            $repayDate=date($this->repayDate);
+
+            if($repayDate > $currentday ){
                 switch($loanType){
                     case 3: 
                         $response="END Dear Customer you are only allowed to topup your loan 
@@ -140,7 +142,8 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
             ///else if they is date in the data base do the following 
         }else{
             $currentday=date('y-m-d');
-           if($this->repayDate > $currentday){
+            $repayDate=date($this->repayDate);
+           if(!($repayDate > $currentday)){
                 switch($loanType){
                     case 1: 
                         $response="END Dear Customer you are only allowed to topup your loan 
@@ -210,13 +213,12 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
         $comparedate=date("y-m-d",strtotime(2009-10-6));
         if ($this->repayDate == $comparedate ){
             $sqlsmt=("INSERT INTO `loan_status` (loan_id, member_id, phone_number, loan_amount, repay_date,
-    loan_status, loan_type, processing_date) 
+    loan_status, loan_type, processing_date)
     VALUES (NULL, '3', '$phoneNumber', ' $loanApplied', '$db_repaydate', '-1', '$loanType', '$processingDate');");
      $execute=mysqli_query($conn,$sqlsmt);
      if($execute){
         echo "END successful";
      }
-
         }else{
 //update the existing recode
  echo "END Dear customer please wait as your loan is being processed, Thank you!".$comparedate ;
