@@ -204,9 +204,15 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
 
 
     $current_date=date('y-m-d');
-    $db_repaydate=date("y-m-d",strtotime($current_date.'+ 1 months'));;
-    $processingDate=date($current_date,$t);
     $loanType=$textArray[1];
+    if($loanType==1){
+        $db_repaydate=date("y-m-d",strtotime($current_date.'+ 1 months'));
+    }else{
+        $db_repaydate=date("y-m-d",strtotime($current_date.'+ 3 months'));;
+    }
+    
+    $processingDate=date($current_date,$t);
+    
     $loanApplied=$textArray[2];
     $memberid=2;
             //check if a customer has an existing loan if yes update the database else create a new recode in the data base
