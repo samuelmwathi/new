@@ -100,7 +100,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
                 }
 
             }else{
-                $response="END Dear Customer you have an over due loan that was to be paid by ".$this->repayDate.
+                $response="END Dear Customer you have an over due loan that was to be paid by ".$this->repayDate. $comparedate.
                 ". Repay the loan to continue enjoying our loan services";
                 echo $response;
             }
