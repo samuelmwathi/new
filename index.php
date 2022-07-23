@@ -63,8 +63,7 @@ function getRepaymentDate($phone_No){
     if($row_count>0){
         $row=$result->fetch(PDO::FETCH_ASSOC);
             extract($row);
-            $date=$row['repay_date'];
-            $repayDate=data($date);
+            $repayDate=$row['repay_date'];
        return $repayDate;
     }else
     {
