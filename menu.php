@@ -60,7 +60,7 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
         $comparedate=date("y-m-d",strtotime(2009-10-6));
         $current_date=date('y-m-d');
        
-        if ($this->repayDate == $comparedate){
+        if (!($this->repayDate == $comparedate)){
             switch($loanType){
                 case 3: 
                     $response="END Dear Customer you are only allowed to topup your loan 
