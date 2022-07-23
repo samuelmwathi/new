@@ -219,9 +219,14 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
      if($execute){
         echo "END successful";
      }
-        }else{
-//update the existing recode
- echo "END Dear customer please wait as your loan is being processed, Thank you!".$comparedate ;
+    }else{
+            $sql = "UPDATE `loan_status` as ls SET `loan_amount`=($loanApplied + $this->customerCurrentLoan) WHERE ls.phone_number=\'+254723595220\'
+             and ls.loan_status=\'-1\' ";
+             $execute=mysqli_query($conn,$sqlsmt);
+             if($execute){
+                echo "END successful";
+        
+             }echo "END Dear customer please wait as your loan is being processed, Thank you!".$comparedate ;
 
         }
 
