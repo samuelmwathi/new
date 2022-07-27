@@ -124,8 +124,7 @@ function getLoanType($phone_No){
                 $menu->unpaid_loan($repayDate);
             break; 
             default: echo "END Inavalid option\n";
-                
-        
+
         }
 
 
