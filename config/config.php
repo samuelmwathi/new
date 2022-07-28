@@ -1,6 +1,6 @@
 <?php
 //configuration ang connection to data base
-class Connect{
+class Connect extends PDO{
 
 public function __construct(){
     $conn=mysqli_connect(hostname:"remotemysql.com",

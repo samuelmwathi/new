@@ -12,6 +12,9 @@
 SELECT smpd.net_pay,smp.end_date FROM society_member_payment_details smpd INNER JOIN society_member_payments smp
 on smpd.payment_id=smp.society_payment_id INNER JOIN socientymembers sm 
 on sm.member_id=smpd.member_id where sm.member_idno='3813193' and smp.end_date>='2022-05-23'and smp.end_date<'2022-05-24';
-
+// parent::__construct("mysql:host=remotemysql.com;dbname=62ufR36NQc",'62ufR36NQc','Q6jiKEZ2vP',
+// array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
+// $this->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+// $this->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 
 ?>
