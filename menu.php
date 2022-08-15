@@ -223,7 +223,8 @@ public function apply_loan($textArray,$availableLoanToBorrow,$loanType,$phoneNum
     VALUES (NULL, '3', '$phoneNumber', ' $loanApplied', '$db_repaydate', '-1', '$loanType', '$processingDate');");
      $execute=mysqli_query($conn,$sqlsmt);
      if($execute){
-        echo "END successful";
+        echo "END Dear customer please wait as we process your request. Laon processing will take less than 24 hours.
+        Thank you!";
      }
     }else{
             $sql =(" UPDATE `loan_status` as ls SET `loan_amount`= ($loanApplied+$this->customerCurrentLoan) WHERE ls.phone_number='+254723595220' 
